@@ -35,7 +35,7 @@ body::before {
     top: 0;
     width: 100%;
     z-index: 1000;
-    min-height: 60px;
+    min-height: 50px;
     padding: 10px 20px;
     border-bottom: 1px solid #33ff88 !important;
     background: rgba(0,0,0,0.85) !important;
@@ -140,6 +140,26 @@ input, textarea {
 /* ===== LINKS ===== */
 a { color: #33ff88 !important; }
 
+/* =========================
+   🚫 DISABLE STATUS BAR DURING PLAYBACK
+   ========================= */
+
+/* Hide during video playback */
+html:has(.videoPlayerContainer) body::after {
+    display: none !important;
+}
+
+/* Hide during audio playback / now playing screens */
+html:has(.nowPlayingPage) body::after,
+html:has(.nowPlayingBar) body::after {
+    display: none !important;
+}
+
+/* Extra fallback (older Jellyfin layouts) */
+.playingPage body::after,
+.videoPlayerContainer ~ body::after {
+    display: none !important;
+}
 /* ===== STATUS BAR ===== */
 body::after {
     content: "STATUS: ONLINE  |  NODE: JELLYFIN-01  |  NETWORK: TAILSCALE  |  STREAM: ACTIVE";
