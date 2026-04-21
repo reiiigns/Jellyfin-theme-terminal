@@ -26,10 +26,44 @@ body::before {
     z-index: 9999;
 }
 
-/* ===== HEADER ===== */
+/* ===== HEADER (FIXED + RESPONSIVE) ===== */
 .skinHeader {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: auto !important;
+    min-height: 60px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+
     border-bottom: 1px solid #33ff88 !important;
-    background: #000 !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(6px);
+}
+
+/* Push content below header */
+.page {
+    margin-top: 80px !important;
+    padding-bottom: 30px; /* for status bar */
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .page {
+        margin-top: 100px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .page {
+        margin-top: 70px !important;
+    }
+}
+
+/* Fallback for weird layouts */
+.view, .contentWrapper {
+    padding-top: 80px !important;
 }
 
 /* ===== TITLES ===== */
@@ -155,11 +189,6 @@ body::after {
     padding: 6px 10px;
     font-family: "Courier New", monospace;
     z-index: 9999;
-}
-
-/* prevent overlap with status bar */
-.page {
-    padding-bottom: 30px;
 }
 
 /* ===== HOVER GLOW ===== */
