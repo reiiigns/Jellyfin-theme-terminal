@@ -1,0 +1,177 @@
+/* =========================
+   OPAQUEFILM TERMINAL THEME
+   ========================= */
+
+/* ===== GLOBAL ===== */
+body, .skinHeader, .page, .mainDrawer {
+    background-color: #000 !important;
+    color: #33ff88 !important;
+    font-family: "Courier New", monospace !important;
+    text-shadow: 0 0 4px rgba(51,255,136,0.5);
+}
+
+/* ===== SCANLINES ===== */
+body::before {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,255,120,0.05),
+        rgba(0,255,120,0.05) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    z-index: 9999;
+}
+
+/* ===== HEADER ===== */
+.skinHeader {
+    border-bottom: 1px solid #33ff88 !important;
+    background: #000 !important;
+}
+
+/* ===== TITLES ===== */
+h1, h2, h3, .sectionTitle {
+    color: #33ff88 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* blinking cursor */
+.sectionTitle::after {
+    content: "_";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* ===== SIDEBAR ===== */
+.mainDrawer {
+    background: #000 !important;
+    border-right: 1px solid #33ff88;
+}
+
+/* ===== BUTTONS (TERMINAL COMMAND STYLE) ===== */
+.emby-button {
+    background: transparent !important;
+    border: 1px solid #33ff88 !important;
+    color: #33ff88 !important;
+    text-transform: uppercase;
+}
+
+.emby-button::before {
+    content: "> ";
+}
+
+.emby-button:hover {
+    background: #33ff88 !important;
+    color: #000 !important;
+}
+
+/* ===== INPUTS ===== */
+input, textarea {
+    background: #000 !important;
+    border: 1px solid #33ff88 !important;
+    color: #33ff88 !important;
+}
+
+/* ===== CARDS ===== */
+.cardBox {
+    background: transparent !important;
+    border: 1px solid rgba(51,255,136,0.2);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.cardBox:hover {
+    border: 1px solid #33ff88;
+    box-shadow: 0 0 12px rgba(51,255,136,0.5);
+}
+
+/* KEEP IMAGES CLEAN */
+.cardImageContainer img {
+    filter: none !important;
+}
+
+/* subtle edge darkening */
+.cardBox::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.2),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* ===== CARD TEXT ===== */
+.cardText, .cardOverlayText {
+    color: #33ff88 !important;
+    font-family: "Courier New", monospace !important;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progressbar {
+    background-color: rgba(51,255,136,0.2) !important;
+}
+
+.progressbar > div {
+    background-color: #33ff88 !important;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #33ff88;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: #33ff88 !important;
+}
+
+/* ===== FAKE STATUS BAR ===== */
+body::after {
+    content: "STATUS: ONLINE  |  NODE: JELLYFIN-01  |  NETWORK: TAILSCALE  |  STREAM: ACTIVE";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    border-top: 1px solid #33ff88;
+    color: #33ff88;
+    font-size: 12px;
+    padding: 6px 10px;
+    font-family: "Courier New", monospace;
+    z-index: 9999;
+}
+
+/* prevent overlap with status bar */
+.page {
+    padding-bottom: 30px;
+}
+
+/* ===== HOVER GLOW ===== */
+button:hover, a:hover {
+    text-shadow: 0 0 8px rgba(51,255,136,0.9);
+}
+
+/* ===== OPTIONAL: CLEANER UI ===== */
+.emby-tabs-slider {
+    background: #33ff88 !important;
+}
+
+.paper-icon-button-light:hover {
+    color: #33ff88 !important;
+}
