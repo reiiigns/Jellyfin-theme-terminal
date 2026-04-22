@@ -1,6 +1,5 @@
 /* =========================
    OPAQUEFILM TERMINAL THEME v2
-   CINEMATIC MODE UPGRADE
    ========================= */
 
 /* ===== GLOBAL ===== */
@@ -29,11 +28,6 @@ body::before {
     transition: opacity 0.4s ease;
 }
 
-/* FIX 1: Ensure video is visible */
-.videoPlayerContainer {
-    z-index: auto !important;
-}
-
 /* ===== HEADER ===== */
 .skinHeader {
     position: fixed !important;
@@ -45,12 +39,6 @@ body::before {
     border-bottom: none !important;
     background: transparent !important;
     transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-/* FIX 3: Remove large green header block - hide header bg on all pages */
-.skinHeader {
-    background: transparent !important;
-    box-shadow: none !important;
 }
 
 /* Push content */
@@ -150,26 +138,6 @@ input, textarea {
 /* ===== LINKS ===== */
 a { color: #33ff88 !important; }
 
-/* =========================
-   🚫 DISABLE STATUS BAR DURING PLAYBACK
-   ========================= */
-
-/* Hide during video playback */
-html:has(.videoPlayerContainer) body::after {
-    display: none !important;
-}
-
-/* Hide during audio playback / now playing screens */
-html:has(.nowPlayingPage) body::after,
-html:has(.nowPlayingBar) body::after {
-    display: none !important;
-}
-
-/* Extra fallback (older Jellyfin layouts) */
-.playingPage body::after,
-.videoPlayerContainer ~ body::after {
-    display: none !important;
-}
 /* ===== STATUS BAR ===== */
 body::after {
     content: "STATUS: ONLINE  |  NODE: JELLYFIN-01  |  NETWORK: TAILSCALE  |  STREAM: ACTIVE";
@@ -184,57 +152,22 @@ body::after {
     transition: opacity 0.4s ease;
 }
 
-/* FIX 2: Hide footer on ANY media viewing (not just playback) */
+/* Hide footer on media pages */
 html:has(.itemDetailPage) body::after,
 html:has(.libraryPage) body::after,
 html:has(.homePage) body::after,
-html:has(.videoPlayerContainer) body::after,
 html:has(.nowPlayingPage) body::after,
-html:has(.nowPlayingBar) body::after,
-html:has(.playbackOverlay) body::after,
-html:has(.medialibraryPage) body::after {
+html:has(.nowPlayingBar) body::after {
     display: none !important;
 }
 
-/* =========================
-   🎬 CINEMATIC MODE
-   ========================= */
-
-/* detect playback */
-html:has(.videoPlayerContainer) body::before,
-html:has(.videoPlayerContainer) .skinHeader,
-html:has(.videoPlayerContainer) body::after {
-    opacity: 0 !important;
-    pointer-events: none;
-}
-
-/* remove spacing in playback */
-html:has(.videoPlayerContainer) .page {
-    margin-top: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-/* fullscreen clean */
-html:has(.videoPlayerContainer) body {
-    background: #000 !important;
-}
-
-/* play controls */
-.scrubber,
-.playerControls,
-.controlsContainer {
-    opacity: 1 !important;
-}
-
-/* ===== MUSIC BAR POLISH ===== */
+/* ===== MUSIC BAR ===== */
 .nowPlayingBar {
     background: rgba(0,0,0,0.9) !important;
     border-top: 1px solid #33ff88;
     backdrop-filter: blur(4px);
     transition: transform 0.3s ease;
 }
-
-/* subtle lift */
 .nowPlayingBar:hover {
     transform: translateY(-2px);
 }
