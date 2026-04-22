@@ -187,19 +187,53 @@ button:hover, a:hover {
 }
 
 /* ===== PLAYBACK CONTROLS ===== */
-.playerControls,
-.controlsContainer,
+/* Make video OSD always visible */
+.videoOsdBottom,
 .videoOsd,
 .osdControls,
-.default_osd__controls,
-.osdBottom,
-.osdTop,
-.osdLeft,
-.osdRight {
+.osdTextContainer,
+.osdPositionSlider,
+.osdVolumeSlider,
+.sliderContainer {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    background: rgba(0,0,0,0.7) !important;
+}
+
+/* All buttons in OSD */
+.btnPause,
+.btnPlay,
+.btnRewind,
+.btnFastForward,
+.btnFullscreen,
+.btnPip,
+.buttonMute,
+.btnVideoOsdSettings,
+.btnSubtitles,
+.btnAudio,
+.btnUserRating,
+.btnNextChapter,
+.btnPreviousChapter,
+.btnPreviousTrack,
+.btnNextTrack,
+.btnRecord {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    color: #33ff88 !important;
+}
+
+/* Slider backgrounds */
+.mdl-slider-background-flex,
+.mdl-slider-background-upper,
+.mdl-slider-background-lower {
+    opacity: 1 !important;
+}
+
+/* Hide loading spinner */
+.osdMediaStatus,
+.animate {
+    display: none !important;
 }
 
 .btnPlay,
