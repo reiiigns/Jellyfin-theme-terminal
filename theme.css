@@ -1,81 +1,90 @@
 /* =========================
-   OPAQUEFILM TERMINAL THEME v2
+   OPAQUEFILM TERMINAL THEME v3
+   Functional rebuild - playback safe
    ========================= */
 
-/* ===== GLOBAL ===== */
-body, .skinHeader, .page, .mainDrawer {
-    background-color: #000 !important;
+/* ===== GLOBAL TEXT & COLORS ===== */
+/* Apply neon text to library UI only - NOT playback */
+.skinHeader,
+.page,
+.libraryPage,
+.homePage,
+.mainDrawer,
+.cardBox,
+.cardText,
+.cardOverlayText,
+.sectionTitle,
+h1, h2, h3,
+.itemDetailPage {
     color: #33ff88 !important;
     font-family: "Courier New", monospace !important;
-    text-shadow: 0 0 4px rgba(51,255,136,0.5);
-    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* ===== SCANLINES ===== */
+/* Neon text glow */
+.skinHeader,
+.sectionTitle,
+.cardText {
+    text-shadow: 0 0 6px rgba(51,255,136,0.6) !important;
+}
+
+/* ===== BACKGROUND + SCANLINES ===== */
+/* Dark background for library UI (NOT video player) */
+.skinHeader,
+.page,
+.libraryPage,
+.homePage,
+.mainDrawer {
+    background-color: #0a0a0a !important;
+}
+
+/* Light scanlines on background only */
 body::before {
     content: "";
-    pointer-events: none;
     position: fixed;
     inset: 0;
+    pointer-events: none;
     background: repeating-linear-gradient(
         to bottom,
-        rgba(0,255,120,0.05),
-        rgba(0,255,120,0.05) 1px,
-        transparent 2px,
-        transparent 4px
+        rgba(51,255,136,0.02),
+        rgba(51,255,136,0.02) 1px,
+        transparent 1px,
+        transparent 3px
     );
-    z-index: 9999;
-    transition: opacity 0.4s ease;
+    z-index: -1;
 }
 
 /* ===== HEADER ===== */
 .skinHeader {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
-    min-height: 50px;
-    padding: 10px 20px;
-    border-bottom: none !important;
-    background: transparent !important;
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    border-bottom: 1px solid rgba(51,255,136,0.3);
+    backdrop-filter: blur(4px);
 }
 
-/* Push content */
 .page {
-    margin-top: 80px !important;
-    padding-bottom: 30px;
+    margin-top: 60px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .page { margin-top: 100px !important; }
-}
-@media (min-width: 1200px) {
-    .page { margin-top: 70px !important; }
-}
-
-/* ===== TITLES ===== */
-h1, h2, h3, .sectionTitle {
-    color: #33ff88 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* ===== CARDS ===== */
+.cardBox {
+    border: 1px solid rgba(51,255,136,0.15);
+    background: rgba(0,0,0,0.6) !important;
+    transition: all 0.2s ease;
 }
 
-/* cursor */
-.sectionTitle::after {
-    content: "_";
-    animation: blink 1s infinite;
-}
-@keyframes blink {
-    0%,50%,100%{opacity:1;}
-    25%,75%{opacity:0;}
+.cardBox:hover {
+    border-color: #33ff88;
+    box-shadow: 0 0 12px rgba(51,255,136,0.4);
 }
 
-/* ===== SIDEBAR ===== */
-.mainDrawer {
-    background: #000 !important;
-    border-right: 1px solid #33ff88;
+/* Card gradient overlay */
+.cardBox::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 50%);
+    pointer-events: none;
 }
 
 /* ===== BUTTONS ===== */
@@ -83,233 +92,115 @@ h1, h2, h3, .sectionTitle {
     background: transparent !important;
     border: 1px solid #33ff88 !important;
     color: #33ff88 !important;
-    text-transform: uppercase;
 }
-.emby-button::before { content: "> "; }
+
 .emby-button:hover {
     background: #33ff88 !important;
     color: #000 !important;
 }
 
+.paper-icon-button-light:hover {
+    color: #33ff88 !important;
+    text-shadow: 0 0 8px rgba(51,255,136,0.8) !important;
+}
+
 /* ===== INPUTS ===== */
 input, textarea {
-    background: #000 !important;
-    border: 1px solid #33ff88 !important;
+    background: #111 !important;
+    border: 1px solid rgba(51,255,136,0.4) !important;
     color: #33ff88 !important;
 }
 
-/* ===== CARDS ===== */
-.cardBox {
-    border: 1px solid rgba(51,255,136,0.2);
-    transition: all 0.25s ease;
-    position: relative;
-}
-.cardBox:hover {
-    border: 1px solid #33ff88;
-    box-shadow: 0 0 14px rgba(51,255,136,0.6);
-}
-
-/* cinematic shading */
-.cardBox::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
-    pointer-events: none;
-}
-
-/* ===== TEXT ===== */
-.cardText, .cardOverlayText {
-    color: #33ff88 !important;
-}
-
-/* ===== PROGRESS ===== */
+/* ===== PROGRESS BARS ===== */
 .progressbar {
-    background-color: rgba(51,255,136,0.2) !important;
+    background-color: rgba(51,255,136,0.15) !important;
 }
+
 .progressbar > div {
     background-color: #33ff88 !important;
 }
 
-/* ===== SCROLL ===== */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-thumb { background: #33ff88; }
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb {
+    background: rgba(51,255,136,0.4);
+    border-radius: 3px;
+}
 
-/* ===== LINKS ===== */
-a { color: #33ff88 !important; }
+/* ===== SIDEBAR ===== */
+.mainDrawer {
+    border-right: 1px solid rgba(51,255,136,0.2);
+}
 
-/* ===== STATUS BAR ===== */
+/* ===== STATUS BAR FOOTER ===== */
 body::after {
     content: "STATUS: ONLINE  |  NODE: JELLYFIN-01  |  NETWORK: TAILSCALE  |  STREAM: ACTIVE";
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: #000;
-    border-top: 1px solid #33ff88;
-    font-size: 12px;
-    padding: 6px 10px;
-    z-index: 9999;
-    transition: opacity 0.4s ease;
+    background: #0a0a0a;
+    border-top: 1px solid rgba(51,255,136,0.4);
+    font-size: 11px;
+    padding: 4px 10px;
+    z-index: 100;
+    font-family: "Courier New", monospace;
+    color: #33ff88;
 }
 
-/* Hide footer on media pages - use opacity to preserve DOM */
+/* Hide footer on media pages */
 html:has(.itemDetailPage) body::after,
 html:has(.libraryPage) body::after,
-html:has(.homePage) body::after,
-html:has(.nowPlayingPage) body::after,
-html:has(.nowPlayingBar) body::after {
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* ===== MUSIC BAR ===== */
-.nowPlayingBar {
-    background: rgba(0,0,0,0.9) !important;
-    border-top: 1px solid #33ff88;
-    backdrop-filter: blur(4px);
-    transition: transform 0.3s ease;
-}
-.nowPlayingBar:hover {
-    transform: translateY(-2px);
+html:has(.homePage) body::after {
+    opacity: 0.3;
 }
 
 /* ===== HOVER GLOW ===== */
 button:hover, a:hover {
-    text-shadow: 0 0 10px rgba(51,255,136,1);
+    text-shadow: 0 0 8px rgba(51,255,136,0.9);
 }
 
-/* ===== CLEAN UI ===== */
+/* ===== LINKS ===== */
+a {
+    color: #33ff88 !important;
+}
+
+/* ===== TABS SLIDER ===== */
 .emby-tabs-slider {
     background: #33ff88 !important;
 }
-.paper-icon-button-light:hover {
-    color: #33ff88 !important;
+
+/* ===== ANIMATIONS ===== */
+.sectionTitle::after {
+    content: "_";
+    animation: blink 1s infinite;
 }
 
-/* ===== PLAYBACK CONTROLS ===== */
-/* Override JS hide classes with !important */
-.videoOsdBottom,
-.videoOsdBottom-hidden,
-.videoOsdBottom-hidden.hide,
-div.hide,
-.osdControls {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
 }
 
-/* Background for controls */
-.videoOsdBottom {
-    background: rgba(0,0,0,0.85) !important;
-    padding: 12px 20px !important;
-    border-top: 1px solid #33ff88 !important;
-}
-
-.videoOsdBottom-hidden {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* All OSD elements */
-.videoOsd,
-.osdControls,
-.osdTextContainer,
-.osdPositionSlider,
-.osdVolumeSlider,
-.sliderContainer {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* All buttons */
-.paper-icon-button-light {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    color: #33ff88 !important;
-}
-
-/* Slider */
-.mdl-slider-background-flex,
-.mdl-slider-background-upper,
-.mdl-slider-background-lower {
-    opacity: 1 !important;
-}
-
-/* Hide spinner only */
-.osdMediaStatus {
-    display: none !important;
-}
-
-.btnPlay,
-.btnPause,
-.btnStop,
-.btnSeekBackward,
-.btnSeekForward,
-.btnVolume,
-.btnMute,
-.btnFullscreen,
-.btnPictureInPicture,
-.playlistBtn,
-.subtitleBtn,
-.audioBtn,
-.playButton,
-.paper-icon-button,
-.default_osd__button,
-.osdButton {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    color: #33ff88 !important;
-    background: transparent !important;
-}
-
-.scrubber,
-.progressbar,
-.seekBar,
-.slider,
-.sliderBar {
-    opacity: 1 !important;
-    background: rgba(51,255,136,0.3) !important;
-}
-
-.videoOsdInner {
-    opacity: 1 !important;
-    background: transparent !important;
-}
-
-.osdLevel {
-    opacity: 1 !important;
-}
-
-.skinHeader {
-    z-index: 1000 !important;
-}
-
+/* ===== PLAYBACK SAFETY ===== */
+/* Explicitly exclude video elements from theme styling */
 .videoPlayerContainer,
 .htmlvideo,
-video {
-    z-index: 9998 !important;
-}
-
-/* ===== FINAL PLAYBACK OVERRIDES ===== */
-/* Force controls visible - highest specificity */
+video,
+.videoOsd,
 .videoOsdBottom,
-.videoOsdBottom-hidden,
-.videoOsdBottom.videoOsdBottom-hidden,
-.videoOsdBottom[style*="display: none"],
-.videoOsdBottom[style*="display:none"] {
+.osdControls,
+.osdTextContainer,
+.paper-icon-button-light {
+    all: initial !important;
     display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
 }
 
-/* Buttons */
-.paper-icon-button-light {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    color: #33ff88 !important;
+/* Force playback elements to default browser styling */
+.videoPlayerContainer *,
+.htmlvideo * {
+    all: unset !important;
+    display: auto !important;
+}
+
+video {
+    display: block !important;
 }
