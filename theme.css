@@ -187,13 +187,21 @@ button:hover, a:hover {
 }
 
 /* ===== PLAYBACK CONTROLS ===== */
-/* Override hide class from JS */
-.videoOsdBottom {
+/* Override JS hide classes with !important */
+.videoOsdBottom,
+.videoOsdBottom-hidden,
+.videoOsdBottom-hidden.hide,
+div.hide,
+.osdControls {
     display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
-    background: rgba(0,0,0,0.8) !important;
-    padding: 10px !important;
+}
+
+/* Background for controls */
+.videoOsdBottom {
+    background: rgba(0,0,0,0.85) !important;
+    padding: 12px 20px !important;
     border-top: 1px solid #33ff88 !important;
 }
 
@@ -283,4 +291,25 @@ button:hover, a:hover {
 .htmlvideo,
 video {
     z-index: 9998 !important;
+}
+
+/* ===== FINAL PLAYBACK OVERRIDES ===== */
+/* Force controls visible - highest specificity */
+.videoOsdBottom,
+.videoOsdBottom-hidden,
+.videoOsdBottom.videoOsdBottom-hidden,
+.videoOsdBottom[style*="display: none"],
+.videoOsdBottom[style*="display:none"] {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Buttons */
+.paper-icon-button-light {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    color: #33ff88 !important;
 }
