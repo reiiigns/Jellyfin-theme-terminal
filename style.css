@@ -1,21 +1,34 @@
-/*Scyflow-main*/
-/* Variables */
+/*Scyflow-Main - OPAQUEFILM GREEN*/
+/* ===== GLOBAL GREEN TEXT ===== */
+html, body, .skinText, .emby-textarea, .emby-input, .paper-icon-button-light {
+    color: #33ff88 !important;
+}
+
+/* Material icons green */
+.material-icons, span:not([class]) {
+    color: #33ff88 !important;
+}
+
+/* All text elements */
+h1, h2, h3, h4, p, label, .text, .text-bright {
+    color: #33ff88 !important;
+}
+
+/* ===== VARIABLES ===== */
 :root {
     --primary-r: 0;  
-    --primary-g: 153;  
-    --primary-b: 255; 
+    --primary-g: 255;  
+    --primary-b: 136; 
     --primary-accent-color: #33ff88;  
     --secondary-accent-color: #003519; 
     --primary-background-color: #101010; 
     --secondary-background-color: #181818; 
-    --primary-background-transparent: rgba(0, 153, 255, 0.1); 
-    --secondary-background-transparent: rgba(0, 153, 255, 0.2);
+    --primary-background-transparent: rgba(51, 255, 136, 0.1); 
+    --secondary-background-transparent: rgba(51, 255, 136, 0.2);
     --rounded-cards: 5px;
     --blur: 2px;
-    --alt-accent-color: #ffffff20;
-    --alt-accent-color-nontsp: #ffffffe0
-
-
+    --alt-accent-color: #33ff8820;
+    --alt-accent-color-nontsp: #33ff88e0;
 }
 
 /* Setting accent color variable */
@@ -490,12 +503,16 @@ html,
     padding: .25em .25em .25em .5em !important;
 }
 
-/* Modify player buttons */
-.material-icons.fast_rewind::before {
-    content: "\e059";
+/* ===== GLOBAL ICON COLOR ===== */
+.mdl-slider-hoverthumb:hover::-moz-range-thumb,
+.mdl-slider-hoverthumb:hover::-webkit-slider-thumb,
+.material-icons {
+    color: #33ff88 !important;
 }
-.material-icons.fast_forward::before {
-    content: "\e057";
+
+/* ===== GLOBAL BORDER/OUTLINE ===== */
+input, textarea, select, .checkboxOutline {
+    border-color: rgba(51, 255, 136, 0.5) !important;
 }
 
 
