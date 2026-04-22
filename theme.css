@@ -184,3 +184,48 @@ button:hover, a:hover {
 .paper-icon-button-light:hover {
     color: #33ff88 !important;
 }
+
+/* ===== PLAYBACK CONTROLS ===== */
+.playerControls,
+.controlsContainer,
+.videoOsd,
+.osdControls,
+.default_osd__controls {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.btnPlay,
+.btnPause,
+.btnStop,
+.btnSeekBackward,
+.btnSeekForward,
+.btnVolume,
+.btnMute,
+.btnFullscreen,
+.btnPictureInPicture,
+.playlistBtn,
+.subtitleBtn,
+.audioBtn,
+.playButton,
+.paper-icon-button {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.scrubber,
+.progressbar,
+.seekBar,
+.slider,
+.sliderBar {
+    opacity: 1 !important;
+}
+
+.videoOsdInner {
+    opacity: 1 !important;
+}
+
+.osdLevel {
+    opacity: 1 !important;
+}
