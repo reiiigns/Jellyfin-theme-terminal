@@ -1356,7 +1356,7 @@ div.nextUpSection {
 }
 
 /* Orange Theme*/
-:root {
+/*:root {
     --primary-r: 255;
     --primary-g: 165;
     --primary-b: 0;
@@ -1368,23 +1368,19 @@ div.nextUpSection {
     --secondary-background-transparent: rgba(0, 0, 0, 0.6);
 
     /* Alternate accents*/
-    --primary-alt1: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 1);
-    --primary-alt2: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.85);
-    --primary-alt3: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.7);
-    --primary-alt4: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.55);
-    --primary-alt5: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.4);
-}
+
+/*}
 
 /*OLED/Dark mode*/
 /* Variables */
-:root {
+  :root {
     --primary-background-color: #000;
     --secondary-background-color: #101010;
     --tertiary-background-color: #181818;
     --outline-color: #252525;
     --primary-background-transparent: rgba(35, 35, 35, 0.5);
     --secondary-background-transparent: rgba(0, 0, 0, 0.6);
-}
+  }
 
 .fab,
 .raised,
