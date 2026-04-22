@@ -1,15 +1,17 @@
 /*Scyflow-main*/
 /* Variables */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 :root {
     --primary-r: 0;  
     --primary-g: 153;  
     --primary-b: 255; 
-    --primary-accent-color: #0099ff;  
-    --secondary-accent-color: #00354c; 
+    --primary-accent-color: #33ff88;  
+    --secondary-accent-color: #003519; 
     --primary-background-color: #101010; 
     --secondary-background-color: #181818; 
     --primary-background-transparent: rgba(0, 153, 255, 0.1); 
     --secondary-background-transparent: rgba(0, 153, 255, 0.2);
+    --primary-font: 'Share Tech Mono', 'Courier New', monospace;
     --rounded-cards: 5px;
     --blur: 2px;
     --alt-accent-color: #ffffff20;
@@ -487,10 +489,10 @@ html,
 .layout-desktop #popupContentContainer .previewEpisodeDetails {
     position: unset !important;
     margin: 0px 0px 6px 10px !important;
-    font-size: 13.5px !important;
+    -size: 13.5px !important;
 }
 .layout-desktop #popupContentContainer .previewEpisodeTitle {
-    font-size: 16.5px !important;
+    -size: 16.5px !important;
 }
 .layout-desktop #popupContentContainer .listItem {
     padding: .25em .25em .25em .5em !important;
