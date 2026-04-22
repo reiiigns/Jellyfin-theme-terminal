@@ -1,19 +1,19 @@
-/*Scyflow-Main - OPAQUEFILM GREEN NEON RESKIN*/
+/*Scyflow-main*/
 /* Variables */
 :root {
-    --primary-r: 0;
-    --primary-g: 255;
-    --primary-b: 136;
-    --primary-accent-color: #33ff88;
-    --secondary-accent-color: #003519;
-    --primary-background-color: #101010;
-    --secondary-background-color: #181818;
-    --primary-background-transparent: rgba(51, 255, 136, 0.1);
-    --secondary-background-transparent: rgba(51, 255, 136, 0.2);
+    --primary-r: 0;  
+    --primary-g: 153;  
+    --primary-b: 255; 
+    --primary-accent-color: #33ff88;  
+    --secondary-accent-color: #003519; 
+    --primary-background-color: #101010; 
+    --secondary-background-color: #181818; 
+    --primary-background-transparent: rgba(0, 153, 255, 0.1); 
+    --secondary-background-transparent: rgba(0, 153, 255, 0.2);
     --rounded-cards: 5px;
     --blur: 2px;
-    --alt-accent-color: #33ff8820;
-    --alt-accent-color-nontsp: #33ff88e0;
+    --alt-accent-color: #ffffff20;
+    --alt-accent-color-nontsp: #ffffffe0
 
     /* Alternate accents*/
     --primary-alt1: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 1);
@@ -87,7 +87,9 @@ progress::-webkit-progress-value {
     left: 0 !important;
     top: 0 !important;
     width: 250px !important;
+    /* Modified background color */
     background: var(--secondary-background-color) !important;
+    /* Move drawer behind header */
     z-index: 998 !important;
 }
 /* Lower drawer buttons */
@@ -161,10 +163,12 @@ progress::-webkit-progress-value {
 /* Update progress bar colors to use primary color */
 .itemProgressBarForeground {
     background: var(--primary-accent-color) !important;
+    /* Use primary accent color */
 }
 
 .itemProgressBar {
     background: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.2) !important;
+    /* Use primary color with transparency */
 }
 
 
@@ -377,7 +381,7 @@ html,
 }
 .mdl-slider-hoverthumb:hover::-moz-range-thumb {
     transform: scaleY(2);
-    background: var(--primary-accent-color) !important;
+    background: #fff !important;
 }
 /* Webkit */
 .mdl-slider::-webkit-slider-thumb {
@@ -388,7 +392,7 @@ html,
 }
 .mdl-slider-hoverthumb:hover::-webkit-slider-thumb {
     transform: scaleY(2);
-    background: var(--primary-accent-color) !important;
+    background: #fff !important;
 }
 
 .mdl-slider-background-upper {
@@ -466,7 +470,7 @@ html,
     background: rgba(30, 30, 30, 0.7) !important;
 }
 #skipIntro .emby-button:hover {
-    box-shadow: 0 0 8px rgba(51, 255, 136, 0.6) !important;
+    box-shadow: 0 0 8px rgba(var(--primary-accent-color), 0.6) !important;
 }
 #skipIntro .emby-button:focus {
     background: rgba(30, 30, 30, 0.7) !important;
@@ -521,7 +525,6 @@ html,
 }
 .button-submit {
     background: var(--primary-accent-color) !important;
-    color: #000 !important;
 }
 /* Modify username placement on profile page */
 .layout-desktop #userProfilePage .readOnlyContent div:not([class]),
@@ -719,14 +722,14 @@ div[class=""] {
     background: var(--primary-accent-color) !important;
     border-radius: 5px !important;
     height: 40px !important;
-    color: #000 !important;
+    color: white !important;
 }
 
 
 
 /* Resize show/movie image on details page */
 .layout-desktop .detailImageContainer .card {
-  top: calc(9em - 0px) !important;
+  top: calc(9em - 0px) !important; 
     width: 18.3vw !important;
 }
 
@@ -920,12 +923,12 @@ div[class=""] {
     right: 110px !important;
     background: var(--primary-accent-color) !important;
     border-radius: 5px !important;
-    color: #000 !important;
-    transition: filter 0.2s ease;
+    color: var(--secondary-background-color) !important;
+    transition: filter 0.2s ease; 
 }
 
 .layout-desktop .mainDetailButtons .btnPlay:hover {
-    filter: brightness(120%);
+    filter: brightness(120%); 
 }
 .layout-desktop .mainDetailButtons .detailButton {
     -webkit-flex-direction: row !important;
@@ -940,6 +943,7 @@ div[class=""] {
 
 
 /* Live TV */
+/* Modified background color of active guide cells */
 .programCell-active {
     background: var(--secondary-background-color) !important;
 }
@@ -1119,6 +1123,7 @@ div[class=""] {
 
 
 /* Dynamic backdrop support */
+/* Translucent cards */
 .layout-desktop #itemDetailPage:not(.noBackdropTransparency) .detailsGroupItem,
 .layout-desktop #itemDetailPage:not(.noBackdropTransparency) .detailSectionContent,
 .layout-desktop #itemDetailPage:not(.noBackdropTransparency) .trackSelections {
@@ -1161,9 +1166,13 @@ div[class=""] {
 /* Adjust header tabs for the dark header */
 .layout-desktop .headerTabs {
     background: rgba(0, 0, 0, 0.2) !important;
+    /* Dark background for tabs */
     border-radius: 5px !important;
+    /* Smaller border radius for tabs */
     height: 50px !important;
+    /* Set a specific height for the tabs */
     font-size: 18px !important;
+    /* Adjust font size for smaller text */
 }
 
 /* Inactive Header text color */
@@ -1173,8 +1182,8 @@ div[class=""] {
 }
 /* Active Header text color */
 .emby-tab-button-active > .emby-button-foreground {
-    color: var(--primary-accent-color);
-    transition: color 0.2s ease
+    color: var(--primary-accent-color); 
+    transition: color 0.2s ease   
 }
 /* Hover effect for Header tabs */
 .emby-button:hover > .emby-button-foreground {
@@ -1212,7 +1221,9 @@ div.card-withuserdata.card-hoverable.card:hover > .cardBox-bottompadded.cardBox 
 div.groupedCard.card-hoverable.overflowSquareCard.card:hover > .cardBox-bottompadded.cardBox > .cardScalable,
 div.card-hoverable.squareCard.card:hover > .cardBox-bottompadded.cardBox > .cardScalable {
     border: 2px solid var(--primary-accent-color) !important;
-    box-shadow: 0 0 3px var(--primary-accent-color) !important;
+    /* Outline with primary accent color */
+    box-shadow: 0 0 3px rgba(255, 255, 255, .5) !important;
+    /* Shadow for emphasis */
 }
 
 /* Dim image on hover for all portrait, square, and music page square cards */
@@ -1234,28 +1245,41 @@ div.card-withuserdata.card-hoverable.card,
 div.groupedCard.card-hoverable.overflowSquareCard.card,
 div.card-hoverable.squareCard.card {
     position: relative;
+    /* Ensure positioning for child elements */
 }
 
 
 /* Styles for all home library buttons */
 a.emby-button.homeLibraryButton.raised {
     position: relative;
+    /* Ensure positioning for the overlay */
     transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition */
 }
 
+/* Styles for all home library buttons */
 a.emby-button.homeLibraryButton.raised {
     position: relative;
+    /* Ensure positioning for the overlay */
     box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
     border: 2px solid transparent;
+    /* Set a transparent border by default */
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition */
 }
 
+/* Styles for hover effect */
 a.emby-button.homeLibraryButton.raised:hover {
     border-color: var(--primary-accent-color) !important;
-    box-shadow: 0 0 10px var(--primary-accent-color) !important;
+    /* Change border color on hover */
+    box-shadow: var(--primary-accent-color) !important;
+    /* Shadow for emphasis */
     background-color: rgba(255, 255, 255, 0.1) !important;
+    /* Light background on hover */
 }
 
+/* Dim effect for the button when hovered */
 a.emby-button.homeLibraryButton.raised:hover::before {
     content: "";
     position: absolute;
@@ -1264,8 +1288,15 @@ a.emby-button.homeLibraryButton.raised:hover::before {
     right: 0;
     bottom: 0;
     background-color: rgba(31, 31, 31, 0.2);
+    /* Dark overlay with 20% opacity */
     z-index: 1;
     transition: background-color 0.1s ease;
+}
+
+/* Scyflow extras*/
+/* BW Logo */
+.pageTitleWithDefaultLogo {
+    background-image: url("https://i.ibb.co/JWYbjZ4z/jp.png");
 }
 
 /* Hide Next Up */
@@ -1284,9 +1315,11 @@ div.nextUpSection {
 /*Hide Upcoming on TV */
 #seriesScheduleList {
     display: none !important;
+    /* Hide the Upcoming on TV section */
 }
 #seriesScheduleSection {
     display: none !important;
+    /* Hide the Upcoming on TV text */
 }
 
 /*TV Guide extras*/
@@ -1296,20 +1329,20 @@ div.nextUpSection {
 }
 
 .lazy-image-fadein-fast.non-blurhashable.lazy.guideChannelImage:hover {
-    filter: drop-shadow(0 0 6px #676767);
+    filter: drop-shadow(0 0 6px #676767); 
 }
 
 .programCell-active.itemAction.programCell:hover .guideProgramName > .guideProgramNameText {
-    transition: text-shadow 0.2s ease;
-    text-shadow:
-        0 0 2px var(--primary-accent-color);
+    transition: text-shadow 0.2s ease; 
+    text-shadow: 
+        0 0 2px var(--primary-accent-color); 
 }
 
 .channelsContainer button.itemAction.guide-channelHeaderCell:hover {
-    background-color: var(--primary-accent-color) !important;
+    background-color: var(--primary-accent-color) !important; 
 }
 .channelsContainer button.itemAction.guide-channelHeaderCell.selected {
-    background-color: var(--primary-accent-color) !important;
+    background-color: var(--primary-accent-color) !important; 
 }
 
 /* Re-position Title/Banner Image on details page */
@@ -1320,7 +1353,28 @@ div.nextUpSection {
     top: 23% !important;
 }
 
-/* OLED/Dark mode variables */
+/* Orange Theme*/
+:root {
+    --primary-r: 255;
+    --primary-g: 165;
+    --primary-b: 0;
+    --primary-accent-color: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 1.0);
+    --secondary-accent-color: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.1); 
+    --primary-background-color: #101010;
+    --secondary-background-color: #181818;
+    --primary-background-transparent: rgba(35, 35, 35, 0.5);
+    --secondary-background-transparent: rgba(0, 0, 0, 0.6);
+
+    /* Alternate accents*/
+    --primary-alt1: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 1);
+    --primary-alt2: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.85);
+    --primary-alt3: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.7);
+    --primary-alt4: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.55);
+    --primary-alt5: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.4);
+}
+
+/*OLED/Dark mode*/
+/* Variables */
 :root {
     --primary-background-color: #000;
     --secondary-background-color: #101010;
@@ -1392,6 +1446,7 @@ input:not(.mdl-slider) {
     border-color: var(--outline-color) !important;
 }
 
-.layout-desktop .emby-button-foreground {
-    top: -10px !important;
+ .layout-desktop .emby-button-foreground {
+        top: -10px !important;
+
 }
