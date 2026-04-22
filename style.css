@@ -1355,33 +1355,6 @@ div.nextUpSection {
     top: 23% !important;
 }
 
-/* Orange Theme*/
-/*:root {
-    --primary-r: 255;
-    --primary-g: 165;
-    --primary-b: 0;
-    --primary-accent-color: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 1.0);
-    --secondary-accent-color: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.1); 
-    --primary-background-color: #101010;
-    --secondary-background-color: #181818;
-    --primary-background-transparent: rgba(35, 35, 35, 0.5);
-    --secondary-background-transparent: rgba(0, 0, 0, 0.6);
-
-    /* Alternate accents*/
-
-/*}
-
-/*OLED/Dark mode*/
-/* Variables */
-  :root {
-    --primary-background-color: #000;
-    --secondary-background-color: #101010;
-    --tertiary-background-color: #181818;
-    --outline-color: #252525;
-    --primary-background-transparent: rgba(35, 35, 35, 0.5);
-    --secondary-background-transparent: rgba(0, 0, 0, 0.6);
-  }
-
 .fab,
 .raised,
 .collapseContent,
