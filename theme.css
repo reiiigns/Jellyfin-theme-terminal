@@ -187,8 +187,20 @@ button:hover, a:hover {
 }
 
 /* ===== PLAYBACK CONTROLS ===== */
-/* Make video OSD always visible */
-.videoOsdBottom,
+/* Override hide class from JS */
+.videoOsdBottom {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.videoOsdBottom-hidden {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* All OSD elements */
 .videoOsd,
 .osdControls,
 .osdTextContainer,
@@ -197,42 +209,25 @@ button:hover, a:hover {
 .sliderContainer {
     opacity: 1 !important;
     visibility: visible !important;
-    pointer-events: auto !important;
 }
 
-/* All buttons in OSD */
-.btnPause,
-.btnPlay,
-.btnRewind,
-.btnFastForward,
-.btnFullscreen,
-.btnPip,
-.buttonMute,
-.btnVideoOsdSettings,
-.btnSubtitles,
-.btnAudio,
-.btnUserRating,
-.btnNextChapter,
-.btnPreviousChapter,
-.btnPreviousTrack,
-.btnNextTrack,
-.btnRecord {
+/* All buttons */
+.paper-icon-button-light {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
     color: #33ff88 !important;
 }
 
-/* Slider backgrounds */
+/* Slider */
 .mdl-slider-background-flex,
 .mdl-slider-background-upper,
 .mdl-slider-background-lower {
     opacity: 1 !important;
 }
 
-/* Hide loading spinner */
-.osdMediaStatus,
-.animate {
+/* Hide spinner only */
+.osdMediaStatus {
     display: none !important;
 }
 
