@@ -1,43 +1,33 @@
 /* =========================
    OPAQUEFILM TERMINAL THEME v3
-   Functional rebuild - playback safe
+   Functional theme - playback safe
    ========================= */
 
-/* ===== GLOBAL TEXT & COLORS ===== */
-/* Apply neon text to library UI only - NOT playback */
-.skinHeader,
-.page,
+/* ===== GLOBAL ===== */
+/* Neon terminal vibe on library UI */
 .libraryPage,
 .homePage,
+.skinHeader,
 .mainDrawer,
-.cardBox,
-.cardText,
-.cardOverlayText,
-.sectionTitle,
-h1, h2, h3,
-.itemDetailPage {
+.sectionTitle {
     color: #33ff88 !important;
     font-family: "Courier New", monospace !important;
+    text-shadow: 0 0 5px rgba(51,255,136,0.5) !important;
 }
 
-/* Neon text glow */
-.skinHeader,
-.sectionTitle,
-.cardText {
-    text-shadow: 0 0 6px rgba(51,255,136,0.6) !important;
-}
-
-/* ===== BACKGROUND + SCANLINES ===== */
-/* Dark background for library UI (NOT video player) */
-.skinHeader,
-.page,
+/* Dark background */
 .libraryPage,
-.homePage,
-.mainDrawer {
+.homePage {
     background-color: #0a0a0a !important;
 }
 
-/* Light scanlines on background only */
+.skinHeader {
+    background: rgba(0,0,0,0.85) !important;
+    border-bottom: 1px solid rgba(51,255,136,0.25) !important;
+}
+
+/* ===== SCANLINES ===== */
+/* Light scanlines - behind all UI */
 body::before {
     content: "";
     position: fixed;
@@ -45,46 +35,47 @@ body::before {
     pointer-events: none;
     background: repeating-linear-gradient(
         to bottom,
-        rgba(51,255,136,0.02),
-        rgba(51,255,136,0.02) 1px,
+        rgba(51,255,136,0.025),
+        rgba(51,255,136,0.025) 1px,
         transparent 1px,
         transparent 3px
     );
-    z-index: -1;
+    z-index: 0;
 }
 
-/* ===== HEADER ===== */
-.skinHeader {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    border-bottom: 1px solid rgba(51,255,136,0.3);
-    backdrop-filter: blur(4px);
-}
-
-.page {
-    margin-top: 60px;
+.libraryPage::before,
+.homePage::before {
+    z-index: 0;
 }
 
 /* ===== CARDS ===== */
 .cardBox {
-    border: 1px solid rgba(51,255,136,0.15);
-    background: rgba(0,0,0,0.6) !important;
-    transition: all 0.2s ease;
+    border: 1px solid rgba(51,255,136,0.15) !important;
+    background: rgba(0,0,0,0.5) !important;
+    transition: all 0.25s ease;
+    position: relative;
 }
 
 .cardBox:hover {
-    border-color: #33ff88;
-    box-shadow: 0 0 12px rgba(51,255,136,0.4);
+    border-color: #33ff88 !important;
+    box-shadow: 0 0 14px rgba(51,255,136,0.5) !important;
 }
 
-/* Card gradient overlay */
+/* Cinematic gradient overlay */
 .cardBox::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 50%);
+    background: linear-gradient(to top, rgba(0,0,0,0.55), transparent 60%);
     pointer-events: none;
+    z-index: 1;
+}
+
+/* ===== CARD TEXT ===== */
+.cardText,
+.cardOverlayText {
+    color: #33ff88 !important;
+    text-shadow: 0 0 4px rgba(51,255,136,0.7) !important;
 }
 
 /* ===== BUTTONS ===== */
@@ -94,24 +85,32 @@ body::before {
     color: #33ff88 !important;
 }
 
+.emby-button::before { content: "> "; }
+
 .emby-button:hover {
     background: #33ff88 !important;
-    color: #000 !important;
+    color: #0a0a0a !important;
+    text-shadow: none !important;
 }
 
-.paper-icon-button-light:hover {
+button.paper-icon-button-light {
     color: #33ff88 !important;
-    text-shadow: 0 0 8px rgba(51,255,136,0.8) !important;
+}
+
+button.paper-icon-button-light:hover {
+    color: #33ff88 !important;
+    text-shadow: 0 0 10px rgba(51,255,136,0.9) !important;
 }
 
 /* ===== INPUTS ===== */
-input, textarea {
+input,
+textarea {
     background: #111 !important;
     border: 1px solid rgba(51,255,136,0.4) !important;
     color: #33ff88 !important;
 }
 
-/* ===== PROGRESS BARS ===== */
+/* ===== PROGRESS ===== */
 .progressbar {
     background-color: rgba(51,255,136,0.15) !important;
 }
@@ -123,13 +122,36 @@ input, textarea {
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-thumb {
-    background: rgba(51,255,136,0.4);
-    border-radius: 3px;
+    background: rgba(51,255,136,0.35);
 }
 
 /* ===== SIDEBAR ===== */
 .mainDrawer {
-    border-right: 1px solid rgba(51,255,136,0.2);
+    background: #0a0a0a !important;
+    border-right: 1px solid rgba(51,255,136,0.2) !important;
+}
+
+/* ===== HEADER TEXT ===== */
+h1, h2, h3 {
+    color: #33ff88 !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Cursor blink */
+.sectionTitle::after {
+    content: "_";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* ===== TABS ===== */
+.emby-tabs-slider {
+    background: #33ff88 !important;
 }
 
 /* ===== STATUS BAR FOOTER ===== */
@@ -142,21 +164,17 @@ body::after {
     border-top: 1px solid rgba(51,255,136,0.4);
     font-size: 11px;
     padding: 4px 10px;
-    z-index: 100;
+    z-index: 99;
     font-family: "Courier New", monospace;
     color: #33ff88;
+    text-shadow: 0 0 4px rgba(51,255,136,0.5);
 }
 
-/* Hide footer on media pages */
+/* Fade footer on media pages */
 html:has(.itemDetailPage) body::after,
 html:has(.libraryPage) body::after,
 html:has(.homePage) body::after {
     opacity: 0.3;
-}
-
-/* ===== HOVER GLOW ===== */
-button:hover, a:hover {
-    text-shadow: 0 0 8px rgba(51,255,136,0.9);
 }
 
 /* ===== LINKS ===== */
@@ -164,43 +182,26 @@ a {
     color: #33ff88 !important;
 }
 
-/* ===== TABS SLIDER ===== */
-.emby-tabs-slider {
-    background: #33ff88 !important;
-}
+/* =========================
+   PLAYBACK SAFETY ZONE
+   Keep video elements clean
+   ========================= */
 
-/* ===== ANIMATIONS ===== */
-.sectionTitle::after {
-    content: "_";
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 50%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0; }
-}
-
-/* ===== PLAYBACK SAFETY ===== */
-/* Explicitly exclude video elements from theme styling */
+/* Reset video container to default */
 .videoPlayerContainer,
 .htmlvideo,
-video,
-.videoOsd,
-.videoOsdBottom,
-.osdControls,
-.osdTextContainer,
-.paper-icon-button-light {
-    all: initial !important;
-    display: flex !important;
-}
-
-/* Force playback elements to default browser styling */
-.videoPlayerContainer *,
-.htmlvideo * {
-    all: unset !important;
-    display: auto !important;
-}
-
 video {
+    all: unset !important;
     display: block !important;
+}
+
+/* OSD controls - fresh styling */
+.videoOsdBottom,
+.osdControls {
+    all: unset !important;
+}
+
+/* Reset all buttons inside player */
+.videoPlayerContainer button {
+    all: unset !important;
 }
