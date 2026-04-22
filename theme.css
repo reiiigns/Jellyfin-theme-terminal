@@ -192,6 +192,9 @@ button:hover, a:hover {
     display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
+    background: rgba(0,0,0,0.8) !important;
+    padding: 10px !important;
+    border-top: 1px solid #33ff88 !important;
 }
 
 .videoOsdBottom-hidden {
