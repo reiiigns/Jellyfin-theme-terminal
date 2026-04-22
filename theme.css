@@ -219,18 +219,28 @@ html:has(.videoPlayerContainer) body {
     background: #000 !important;
 }
 
-/* smooth fade-in UI controls */
-.videoPlayerContainer .controlsContainer {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-.videoPlayerContainer:hover .controlsContainer {
-    opacity: 1;
+/* smooth fade-in UI controls - make visible and clickable */
+.videoPlayerContainer .controlsContainer,
+.videoPlayerContainer .playerControls,
+.videoPlayerContainer .upnextContainer,
+.videoPlayerContainer .btnPlay,
+.videoPlayerContainer .btnPause,
+.videoPlayerContainer .btnSeekBackward,
+.videoPlayerContainer .btnSeekForward,
+.videoPlayerContainer .btnVolume,
+.videoPlayerContainer .btnFullscreen,
+.videoPlayerContainer .btnPictureInPicture {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 99999 !important;
 }
 
 /* ensure player on top */
 .videoPlayerContainer {
     z-index: 99999 !important;
+    position: relative !important;
+    pointer-events: auto !important;
 }
 
 /* ===== MUSIC BAR POLISH ===== */
