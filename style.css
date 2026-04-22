@@ -549,13 +549,13 @@ div[class=""] {
 .layout-desktop fieldset.verticalSection-extrabottompadding,
 .layout-tv fieldset.verticalSection-extrabottompadding {
     border-radius: var(--rounded-cards) !important;
-    border-color: #3B3B3B !important;
+    border-color: #33ff88 !important;
     padding: 10px 35px !important;
 }
 /* Rounded tab selections in dashboard */
 .layout-desktop .localnav {
     border-radius: 5px !important;
-    background: #202020 !important;
+    background: #33ff88 !important;
     width: fit-content !important;
 }
 .layout-desktop a[data-role="button"] {
@@ -658,7 +658,7 @@ div[class=""] {
     color: inherit !important;
 }
 .MuiPaper-root.MuiPopover-paper {
-    background: #252525 !important;
+    background: #33ff88 !important;
     color: #D1D1D1 !important;
     border-radius: var(--rounded-cards) !important;
 }
@@ -1347,33 +1347,13 @@ div.nextUpSection {
     top: 23% !important;
 }
 
-/* Orange Theme*/
-:root {
-    --primary-r: 255;
-    --primary-g: 165;
-    --primary-b: 0;
-    --primary-accent-color: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 1.0);
-    --secondary-accent-color: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.1); 
-    --primary-background-color: #101010;
-    --secondary-background-color: #181818;
-    --primary-background-transparent: rgba(35, 35, 35, 0.5);
-    --secondary-background-transparent: rgba(0, 0, 0, 0.6);
-
-    /* Alternate accents*/
-    --primary-alt1: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 1);
-    --primary-alt2: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.85);
-    --primary-alt3: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.7);
-    --primary-alt4: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.55);
-    --primary-alt5: rgb(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.4);
-}
-
 /*OLED/Dark mode*/
 /* Variables */
 :root {
-    --primary-background-color: #000;
-    --secondary-background-color: #101010;
+    --primary-background-color: #101010;
+    --secondary-background-color: #181818;
     --tertiary-background-color: #181818;
-    --outline-color: #252525;
+    --outline-color: #33ff88;
     --primary-background-transparent: rgba(35, 35, 35, 0.5);
     --secondary-background-transparent: rgba(0, 0, 0, 0.6);
 }
