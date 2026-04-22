@@ -10,7 +10,15 @@ html, body, .skinText, .emby-textarea, .emby-input, .paper-icon-button-light {
 }
 
 /* All text elements */
-h1, h2, h3, h4, p, label, .text, .text-bright {
+h1, h2, h3, h4, p, label, .text, .text-bright, .sectionTitle,
+.listItem, .listItemText, .infoText, .parentName, .itemName,
+.fieldset, legend, .paperList, select {
+    color: #33ff88 !important;
+}
+
+/* Detail page text */
+.detailPageContent, .detailSection, .detailSectionContent,
+.osdMediaStatus, .endsAtText, .osdTitle {
     color: #33ff88 !important;
 }
 
@@ -501,6 +509,36 @@ html,
 }
 .layout-desktop #popupContentContainer .listItem {
     padding: .25em .25em .25em .5em !important;
+}
+
+/* ===== CARDS GREEN ===== */
+.cardBox, .cardBox-bottompadded, .cardScalable, .cardText, .cardOverlayText,
+.cardOverlayBtn, .cardOverlayInfoContainer, .cardContent-body, .innerCard {
+    color: #33ff88 !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.cardBox {
+    border: 1px solid rgba(51, 255, 136, 0.3) !important;
+}
+
+.cardText, .cardOverlayText {
+    text-shadow: 0 0 4px rgba(51, 255, 136, 0.5) !important;
+}
+
+/* ===== LEFT MENU GREEN ===== */
+.navMenuOption, .navMenuOptionText, .navMenuOptionIcon,
+.mainDrawer, .mainDrawer-scrollContainer {
+    color: #33ff88 !important;
+}
+
+.navMenuOption:hover {
+    background-color: rgba(51, 255, 136, 0.15) !important;
+}
+
+.navMenuOption-selected, .navMenuOption-selected .navMenuOptionText {
+    color: #33ff88 !important;
+    background: rgba(51, 255, 136, 0.2) !important;
 }
 
 /* ===== GLOBAL ICON COLOR ===== */
