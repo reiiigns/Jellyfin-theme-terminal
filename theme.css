@@ -152,13 +152,14 @@ body::after {
     transition: opacity 0.4s ease;
 }
 
-/* Hide footer on media pages */
+/* Hide footer on media pages - use opacity to preserve DOM */
 html:has(.itemDetailPage) body::after,
 html:has(.libraryPage) body::after,
 html:has(.homePage) body::after,
 html:has(.nowPlayingPage) body::after,
 html:has(.nowPlayingBar) body::after {
-    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 /* ===== MUSIC BAR ===== */
@@ -193,6 +194,7 @@ button:hover, a:hover {
 .default_osd__controls {
     opacity: 1 !important;
     visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 .btnPlay,
@@ -208,7 +210,8 @@ button:hover, a:hover {
 .subtitleBtn,
 .audioBtn,
 .playButton,
-.paper-icon-button {
+.paper-icon-button,
+.default_osd__button {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
@@ -228,4 +231,16 @@ button:hover, a:hover {
 
 .osdLevel {
     opacity: 1 !important;
+}
+
+/* Ensure header doesn't overlap player */
+.skinHeader {
+    z-index: 1000 !important;
+}
+
+/* Player needs higher z-index than header */
+.videoPlayerContainer,
+.htmlvideo,
+video {
+    z-index: 9998 !important;
 }
