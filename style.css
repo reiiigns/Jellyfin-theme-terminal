@@ -1479,3 +1479,36 @@ input:not(.mdl-slider) {
         top: -10px !important;
 
 }
+/* Fix for the blue border on media card hover/focus */
+.card:hover .cardImageContainer, 
+.card:focus .cardImageContainer {
+    border-color: var(--primary-accent-color) !important;
+    box-shadow: 0 0 10px var(--primary-accent-color) !important;
+}
+
+/* Fix for the blue overlay when items are selected */
+.itemSelectionPanel {
+    background: var(--secondary-accent-color) !important;
+    border: 2px solid var(--primary-accent-color) !important;
+}
+
+/* Fix for the blue focus ring on buttons and inputs */
+:focus-visible {
+    outline: 2px solid var(--primary-accent-color) !important;
+}
+
+/* Fix for blue text in secondary labels (year, runtime, etc) */
+.cardText-secondary {
+    color: var(--primary-accent-color) !important;
+    opacity: 0.8;
+}
+
+/* Fix for the blue "Play" button hover on cards */
+.cardImageContainer .cardOverlayButton-hover:hover {
+    background-color: var(--primary-accent-color) !important;
+}
+
+/* Fix for multi-select checkmark icons */
+.checkboxIcon-checked {
+    color: var(--primary-accent-color) !important;
+}
